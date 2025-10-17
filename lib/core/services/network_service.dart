@@ -15,4 +15,20 @@ class NetworkService {
     );
     return response.data;
   }
+
+  Future<bool> postRequest({
+    required String endPoint,
+    required Map<String, dynamic> data,
+  }) async {
+    Response response = await dio.post('$baseUrl$endPoint', data: data);
+
+    print(
+      'Post Response From Network Service::::::::::::::::::::::::::::::::::::::::::::::::${response.data}',
+    );
+    if (response.statusCode! >= 200 && response.statusCode! < 300) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

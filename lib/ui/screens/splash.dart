@@ -10,6 +10,7 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ctrl.startCountdown(step: const Duration(seconds: 1));
+    // Show Status bar with light content
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     return SafeArea(
       child: Scaffold(
