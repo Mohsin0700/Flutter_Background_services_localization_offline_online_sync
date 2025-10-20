@@ -37,15 +37,17 @@ class Home extends StatelessWidget {
                 } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
                   return const Center(child: Text('No Tasks Found'));
                 }
-                return ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: (ctx, idx) {
-                    return ListTile(
-                      title: Text(snapshot.data![idx].title.toString()),
-                    );
-                  },
-                );
+                return Obx(() {
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (ctx, idx) {
+                      return ListTile(
+                        title: Text(snapshot.data![idx].title.toString()),
+                      );
+                    },
+                  );
+                });
               },
             ),
           ],

@@ -36,10 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.8
   get: ^4.7.2
   dio: ^5.9.0
-  hive_flutter: ^1.1.0
   flutter_localization: ^0.3.3
   connectivity_plus: ^7.0.0
   flutter_dotenv: ^6.0.0
+  hive_ce: ^2.15.0
 
 dev_dependencies:
   flutter_test:

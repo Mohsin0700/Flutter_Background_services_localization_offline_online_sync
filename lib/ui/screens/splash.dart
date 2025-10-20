@@ -16,9 +16,14 @@ class Splash extends StatelessWidget {
       child: Scaffold(
         body: Center(
           child: Obx(
-            () => Text(
-              ctrl.isWelcomeShownValue ? 'Welcome' : ctrl.countValue.toString(),
-              style: TextStyle(fontSize: 64),
+            () => AnimatedSwitcher(
+              duration: const Duration(milliseconds: 400),
+              child: Text(
+                ctrl.isWelcomeShownValue
+                    ? 'Welcome'
+                    : ctrl.countValue.toString(),
+                style: TextStyle(fontSize: 64),
+              ),
             ),
           ),
         ),

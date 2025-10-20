@@ -7,8 +7,13 @@ class HomeController extends GetxController {
   final TaskRepo taskRepo = TaskRepoImpl();
   final TextEditingController _taskController = TextEditingController();
   get taskController => _taskController;
+  RxList<TaskModel> tasks = <TaskModel>[].obs;
 
-  Future<List<TaskModel>> getTasks() => taskRepo.getTasks();
+  Future<List<TaskModel>> getTasks() async {
+    // var taskBox = await Hive.openBox('tasks');
+    tasks.value = await taskRepo.getTasks();
+    return tasks;
+  }
 
   Future<bool> addTask() async {
     bool res = await taskRepo.addTask(title: _taskController.text);
