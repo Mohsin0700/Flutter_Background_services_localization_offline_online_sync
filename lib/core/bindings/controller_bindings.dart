@@ -5,7 +5,7 @@ import 'package:todo/core/controller/splash_controller.dart';
 class InitialBindings implements Bindings {
   @override
   void dependencies() {
-    Get.put(SplashController());
-    Get.put(HomeController());
+    Get.lazyPut(() => SplashController());
+    Get.lazyPut(() => HomeController());
   }
 }
